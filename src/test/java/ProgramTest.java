@@ -5,7 +5,7 @@ public class ProgramTest {
 
     @org.junit.Test
     public void alternatingCaps() {
-        assertThat(Program.alternatingCapsSecond("hello"),is("HeLlO"));
+        assertThat(Program.alternatingCaps("hello"),is("HeLlO"));
     }
 
     @Test
@@ -31,5 +31,19 @@ public class ProgramTest {
         assertThat(Program.mean(new int[]{1, 1, 1, 0}), is(0.75));
         assertThat(Program.mean(new int[]{1, 1, 0, 1, 2, 1, 1, 1, 0, 0}), is(0.80));
         assertThat(Program.mean(new int[]{10000}), is(10000.00));
+    }
+
+    @Test
+    public void makeTitle(){
+        assertThat(Program.makeTitle("i am a title"),is("I Am A Title"));
+        assertThat(Program.makeTitle("I AM A TITLE"), is("I AM A TITLE"));
+        assertThat(Program.makeTitle("i aM a tITLE"), is("I AM A TITLE"));
+        assertThat(Program.makeTitle("the first letter of every word is capitalized"), is("The First Letter Of Every Word Is Capitalized"));
+        assertThat(Program.makeTitle("I Like Pizza"), is("I Like Pizza"));
+        assertThat(Program.makeTitle("Don't count your ChiCKens BeFore They HatCh"), is("Don't Count Your ChiCKens BeFore They HatCh"));
+        assertThat(Program.makeTitle("All generalizations are false, including this one"), is("All Generalizations Are False, Including This One"));
+        assertThat(Program.makeTitle("Me and my wife lived happily for twenty years and then we met."), is("Me And My Wife Lived Happily For Twenty Years And Then We Met."));
+        assertThat(Program.makeTitle("There are no stupid questions, just stupid people."), is("There Are No Stupid Questions, Just Stupid People."));
+        assertThat(Program.makeTitle("1f you c4n r34d 7h15, you r34lly n33d 2 g37 l41d"), is("1f You C4n R34d 7h15, You R34lly N33d 2 G37 L41d"));
     }
 }

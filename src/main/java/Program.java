@@ -1,21 +1,6 @@
 public class Program {
-    public static String alternatingCaps(String s) {
-        String result="";
-        int length=s.length();
-        int t=0;
-        for(int i=0;i<length-3;i++){
-            if(t%2==0){
-                s = s.substring(0,i)+s.substring(i,i+1).toUpperCase()+s.substring(i+2,length-1);
-                t++;
-            }else{
-                s = s.substring(0,i)+s.substring(i,i+1).toLowerCase()+s.substring(i+2,length-1);
-                t++;
-            }
-        }
-        return s;
-    }
 
-    public static String alternatingCapsSecond(String s) {
+    public static String alternatingCaps(String s) {
         char[] arr=s.toCharArray();
         for(int i=0;i<s.length();i++){
             if(i%2==0){
@@ -42,20 +27,21 @@ public class Program {
         int sum=0;
         for(int i:nums) sum=sum+i;
         double result=(double)sum/nums.length;
-        System.out.println(result);
         result=(double)Math.round(result*100);
         return result/100;
     }
 
     public static String makeTitle(String s) {
         String[] words=s.split(" ");
-        System.out.println(words[1]);
         for(int i=0;i<words.length;i++){
-            words[i]=words[i].toUpperCase();
-
+            //jedes wort teilen und capitalizen
+            String letter = words[i].substring(0,1);
+            letter=letter.toUpperCase();
+            StringBuilder sb = new StringBuilder(letter);
+            sb.append(words[i].substring(1,words[i].length()));
+            words[i]=sb.toString();
 
         }
-        System.out.println(words[1]);
 
         StringBuilder builder = new StringBuilder();
         for (String string : words) {
